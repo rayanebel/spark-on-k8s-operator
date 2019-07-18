@@ -60,6 +60,7 @@ func patchSparkPod(pod *corev1.Pod, app *v1beta1.SparkApplication) []patchOperat
 	patchOps = append(patchOps, addHostNetwork(pod, app)...)
 	patchOps = append(patchOps, addNodeSelectors(pod, app)...)
 	patchOps = append(patchOps, addDNSConfig(pod, app)...)
+	patchOps = append(patchOps, addInitContainers(pod, app)...)
 
 	op := addSchedulerName(pod, app)
 	if op != nil {
@@ -450,6 +451,26 @@ func addHostNetwork(pod *corev1.Pod, app *v1beta1.SparkApplication) []patchOpera
 	// For Pods with hostNetwork, explicitly set its DNS policy  to “ClusterFirstWithHostNet”
 	// Detail: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
 	ops = append(ops, patchOperation{Op: "add", Path: "/spec/dnsPolicy", Value: corev1.DNSClusterFirstWithHostNet})
+	return ops
+}
+
+func addInitContainers(pod *corev1.Pod, app *v1beta1.SparkApplication) []patchOperation {
+	// Here code to mutate pod and add init containers.
+	var initContainers []corev1.Container
+	if util.IsDriverPod(pod) {
+		initContainers = app.Spec.Driver.InitContainers
+	} else if util.IsExecutorPod(pod) {
+		initContainers = app.Spec.Executor.InitContainers
+	}
+
+	var ops []patchOperation
+	ops = append(ops, patchOperation{Op: "add", Path: "/spec/initContainers", Value: initContainers})
+	// for _, c := range initContainers {
+	// 	sd := c
+	// 	if !hasContainer(pod, &sd) {
+	// 		ops = append(ops, patchOperation{Op: "add", Path: "/spec/initContainers", Value: &sd})
+	// 	}
+	// }
 	return ops
 }
 

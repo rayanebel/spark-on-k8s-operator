@@ -402,6 +402,8 @@ type SparkPodSpec struct {
 	// DnsConfig dns settings for the pod, following the Kubernetes specifications.
 	// Optional.
 	DNSConfig *apiv1.PodDNSConfig `json:"dnsConfig,omitempty"`
+	// InitContainers is a list of init containers that run before the main Spark container
+	InitContainers []apiv1.Container `json:"initContainers,omitempty"`
 }
 
 // DriverSpec is specification of the driver.

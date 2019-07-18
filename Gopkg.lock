@@ -41,6 +41,42 @@
   version = "v11.7.0"
 
 [[projects]]
+  branch = "master"
+  digest = "1:61ae19a7b2283d48a48729e3ee65c66b8485e23445465ad05a03d2eeb27ce40d"
+  name = "github.com/GoogleCloudPlatform/spark-on-k8s-operator"
+  packages = [
+    "pkg/apis/sparkoperator.k8s.io",
+    "pkg/apis/sparkoperator.k8s.io/v1alpha1",
+    "pkg/apis/sparkoperator.k8s.io/v1beta1",
+    "pkg/client/clientset/versioned",
+    "pkg/client/clientset/versioned/fake",
+    "pkg/client/clientset/versioned/scheme",
+    "pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1alpha1",
+    "pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1alpha1/fake",
+    "pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1beta1",
+    "pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1beta1/fake",
+    "pkg/client/informers/externalversions",
+    "pkg/client/informers/externalversions/internalinterfaces",
+    "pkg/client/informers/externalversions/sparkoperator.k8s.io",
+    "pkg/client/informers/externalversions/sparkoperator.k8s.io/v1alpha1",
+    "pkg/client/informers/externalversions/sparkoperator.k8s.io/v1beta1",
+    "pkg/client/listers/sparkoperator.k8s.io/v1alpha1",
+    "pkg/client/listers/sparkoperator.k8s.io/v1beta1",
+    "pkg/config",
+    "pkg/controller/scheduledsparkapplication",
+    "pkg/controller/sparkapplication",
+    "pkg/crd",
+    "pkg/crd/scheduledsparkapplication",
+    "pkg/crd/sparkapplication",
+    "pkg/util",
+    "pkg/webhook",
+    "sparkctl/cmd",
+    "test/e2e/framework",
+  ]
+  pruneopts = ""
+  revision = "2c6e9781be7ba0d13272d21a28cc850806f5f39d"
+
+[[projects]]
   digest = "1:e1fc4e86ce21dca811fb1a59438f55e442cfcbdfc3346637ad87a448dca6a657"
   name = "github.com/aws/aws-sdk-go"
   packages = [
@@ -1155,6 +1191,33 @@
   analyzer-version = 1
   input-imports = [
     "cloud.google.com/go/storage",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/apis/sparkoperator.k8s.io",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/apis/sparkoperator.k8s.io/v1alpha1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/apis/sparkoperator.k8s.io/v1beta1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/fake",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/scheme",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1alpha1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1alpha1/fake",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1beta1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/clientset/versioned/typed/sparkoperator.k8s.io/v1beta1/fake",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/informers/externalversions",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/informers/externalversions/internalinterfaces",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/informers/externalversions/sparkoperator.k8s.io",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/informers/externalversions/sparkoperator.k8s.io/v1alpha1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/informers/externalversions/sparkoperator.k8s.io/v1beta1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/listers/sparkoperator.k8s.io/v1alpha1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/client/listers/sparkoperator.k8s.io/v1beta1",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/config",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/controller/scheduledsparkapplication",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/controller/sparkapplication",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/crd",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/crd/scheduledsparkapplication",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/crd/sparkapplication",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/util",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/pkg/webhook",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/sparkctl/cmd",
+    "github.com/GoogleCloudPlatform/spark-on-k8s-operator/test/e2e/framework",
     "github.com/aws/aws-sdk-go/aws",
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/s3",
@@ -1186,7 +1249,9 @@
     "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1",
     "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset",
     "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/fake",
+    "k8s.io/apimachinery/pkg/api/equality",
     "k8s.io/apimachinery/pkg/api/errors",
+    "k8s.io/apimachinery/pkg/api/resource",
     "k8s.io/apimachinery/pkg/apis/meta/v1",
     "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured",
     "k8s.io/apimachinery/pkg/fields",
